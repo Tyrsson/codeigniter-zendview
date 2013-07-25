@@ -48,7 +48,7 @@ class Site_View_Helper_Pod
             $headingText = $headingAttribs['podHeading'];
             unset($headingAttribs['podHeading']);
             $heading = new Zend_Form_Decorator_HtmlTag($headingAttribs);
-            return $this->decorator->render( $heading->render($headingAttribs['podHeading']) . $this->view->podMenu($this->container)->setUlClass($ulClass));
+            return $this->decorator->render( $heading->render($headingText) . $this->view->podMenu($this->container)->setUlClass($ulClass));
         }
 
         return $this->decorator->render($this->view->podMenu($this->container)->setUlClass($ulClass));
