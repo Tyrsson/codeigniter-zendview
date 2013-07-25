@@ -24,14 +24,14 @@ class Site_View_Helper_Pod
     public $decorator;
     public $container;
     public $pages = array();
+    public $heading;
     /*
      * @param $podAttribs the html attributes that will be used to create the pad markup
      *          must have at least a tag key $podAttribs['tag']
      *
      */
-    public function pod (array $data, array $podAttribs, array $listAttribs = null, $alternateLiClass = true)
+    public function pod (array $data, array $podAttribs, array $listAttribs = null, $alternateLiClass = true, array $headingAttribs = array('tag' => 'h2', 'podHeading' => ''))
     {
-        //Zend_Debug::dump($data);
         if(!isset($podAttribs['tag']) || empty($podAttribs['tag']) || $podAttribs['tag'] == null) {
             $podAttribs['tag'] = $this->getWrapperTag();
         }
@@ -43,6 +43,13 @@ class Site_View_Helper_Pod
         $this->buildPages($data);
         $this->getContainer();
         $this->container->addPages($this->getPages());
+
+        if(!empty($headingAttribs['podHeading'])) {
+            $headingText = $headingAttribs['podHeading'];
+            unset($headingAttribs['podHeading']);
+            $heading = new Zend_Form_Decorator_HtmlTag($headingAttribs);
+            return $this->decorator->render( $heading->render($headingAttribs['podHeading']) . $this->view->podMenu($this->container)->setUlClass($ulClass));
+        }
 
         return $this->decorator->render($this->view->podMenu($this->container)->setUlClass($ulClass));
     }
