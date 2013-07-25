@@ -2,8 +2,6 @@
 class Admin extends My_Controller
 {
     public function index() {
-        $this->view->testVar = 'Testing Scope';
-
         $data = array();
         $data[] = array('id' => 1, 'parent' => 1, 'title' => 'Home Page', 'url' => 'home');
         $data[] = array('id' => 1, 'parent' => 1, 'title' => 'Submissions', 'url' => 'Submissions');
