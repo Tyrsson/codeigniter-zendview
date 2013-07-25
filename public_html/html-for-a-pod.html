@@ -1,0 +1,27 @@
+<div id="pods"><!-- Parent container that takes the width of the page -->
+
+	<!--
+	"Pages" is the most "robust" of the group thus far. Since pages can have children,
+	I'm using a CSS class of 'parent', and injecting a <span> container to show that.
+	(I only show top level pages.) The CSS 'alt' class simply makes the list "striped"
+	with a color. If you know of a different way to do that, I'm game. I've turned off
+	this functionality thru the CSS for now, as I haven't decided I even want it.
+	-->
+	
+	<div class="pod one-third">
+		<h2>Pages</h2><!-- was pulling this h2 from a config value -->
+		<ul>
+			<li class="alt"><a title="Edit: Home Page" href="/admin/edit/home">Home Page</a></li>
+			<li><a title="Edit: Submissions" href="/admin/edit/submissions">Submissions</a></li>
+			<li class="alt parent"><a title="Edit: About Us" href="/admin/edit/about-us">About Us<span title="This item has children"></span></a></li>
+			<li><a title="Edit: Contact Us" href="/admin/edit/contact">Contact Us</a></li>
+			<li class="alt parent"><a title="Edit: Authors" href="/admin/edit/featured-authors">Authors<span title="This item has children"></span></a></li>
+			<li><a title="Edit: Up Coming" href="/admin/edit/up-coming">Up Coming</a></li>
+		</ul>
+	</div>
+	
+	<!-- Sidebars Pod --><div class="pod one-third">...</div><!-- End Sidebars Pod -->
+	<!-- Menus Pod --><div class="pod one-third">...</div><!-- End Menus Pod -->
+	<!-- Something I haven't thought of yet Pod --><div class="pod one-third">...</div><!-- End Something I haven't thought of yet Pod -->
+
+</div><!-- End Parent container for the pod divs -->
