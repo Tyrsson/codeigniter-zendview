@@ -21,5 +21,6 @@ class Authors_Model extends CI_Model
 		else {
 			return false;
 		}
+		
 	}
 }
